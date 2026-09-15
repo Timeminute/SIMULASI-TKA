@@ -1,0 +1,24 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "buatbaru",
+  "main": "worker.js",
+  "compatibility_date": "2026-06-17",
+  "assets": {
+    "directory": "../../apps/dashboard/public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "kelas-senja-db",
+      "database_id": "ed6f4617-6ee3-42c8-a3d5-dc759b6462f3"
+    }
+  ],
+  "vars": {
+    "SESSION_TTL_SECONDS": "21600",
+    "PARENT_SESSION_TTL_SECONDS": "21600",
+    "MAX_IMAGE_BYTES": "5242880",
+    "ALLOWED_ORIGIN": ""
+  }
+}

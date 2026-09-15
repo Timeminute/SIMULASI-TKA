@@ -1,0 +1,171 @@
+.pa-training-layout { display: grid; gap: 18px; }
+.pa-training-hero .pa-bank-hero-copy p { margin: 7px 0 0; max-width: 760px; color: var(--gt-muted, var(--body-subtle, #6b7280)); line-height: 1.55; }
+.pa-training-form-card { overflow: hidden; }
+.pa-training-library { display: grid; gap: 16px; }
+.pa-training-toolbar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.pa-training-sync-note { color: var(--gt-muted, var(--body-subtle, #6b7280)); font-size: .88rem; font-weight: 700; }
+.pa-training-shelf-list { display: grid; gap: 22px; }
+.pa-training-shelf { border: 1px solid var(--gt-line, rgba(148, 163, 184, .2)); border-radius: 24px; background: var(--gt-panel-solid, var(--card, #fff)); overflow: hidden; box-shadow: 0 16px 36px rgba(15, 23, 42, .08); }
+.pa-training-shelf-head { display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 16px 18px; border-bottom: 1px solid var(--gt-line, rgba(148, 163, 184, .16)); background: var(--gt-panel-2-solid, rgba(148, 163, 184, .08)); }
+.pa-training-shelf-head > div:first-child { min-width: 0; display: flex; gap: 12px; align-items: center; }
+.pa-training-folder-icon { width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; flex: 0 0 auto; background: var(--brand-accent-soft, rgba(236, 72, 153, .12)); font-size: 1.4rem; }
+.pa-training-shelf-head h4 { margin: 0; color: var(--gt-text, var(--heading, #111827)); font-size: 1.04rem; font-weight: 900; overflow-wrap: anywhere; }
+.pa-training-shelf-head p { margin: 4px 0 0; color: var(--gt-muted, var(--body-subtle, #6b7280)); font-size: .85rem; font-weight: 700; }
+.pa-training-shelf-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+.pa-training-icon-btn { width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--gt-line, rgba(148,163,184,.22)); background: var(--gt-panel-solid, #fff); color: var(--gt-text, #111827); cursor: pointer; display: grid; place-items: center; font: inherit; }
+.pa-training-delete { color: #b42318; }
+.pa-training-shelf-body { padding: 16px 16px 22px; display: grid; gap: 14px; }
+.pa-training-state, .pa-training-empty { min-height: 180px; display: grid; place-items: center; align-content: center; gap: 8px; text-align: center; padding: 24px; color: var(--gt-muted, var(--body-subtle, #6b7280)); }
+.pa-training-state > span:not(.pa-training-spinner), .pa-training-empty > span { font-size: 2.2rem; }
+.pa-training-state strong, .pa-training-empty strong { color: var(--gt-text, var(--heading, #111827)); font-size: 1rem; }
+.pa-training-state p, .pa-training-empty p { margin: 0; max-width: 620px; line-height: 1.5; }
+.pa-training-state-error { color: #b42318; }
+.pa-training-spinner { width: 30px; height: 30px; border: 3px solid rgba(148,163,184,.25); border-top-color: var(--brand-accent, #ec4899); border-radius: 50%; animation: paTrainingSpin .75s linear infinite; }
+@keyframes paTrainingSpin { to { transform: rotate(360deg); } }
+.pa-training-preview-modal .pa-wa-modal-dialog:fullscreen { width: 100vw !important; max-width: none !important; height: 100vh !important; max-height: none !important; border-radius: 0 !important; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.pa-training-preview-modal .pa-wa-modal-dialog:fullscreen .pa-bank-preview-body { min-height: 0; height: 100%; }
+.pa-training-preview-modal .pa-wa-modal-dialog:fullscreen .pa-bank-preview-frame { height: 100%; min-height: 0; }
+
+@media (max-width: 760px) {
+  .pa-training-toolbar { grid-template-columns: 1fr; }
+  .pa-training-sync-note { padding: 0 4px; }
+  .pa-training-shelf-head { align-items: flex-start; flex-direction: column; }
+  .pa-training-shelf-actions { width: 100%; justify-content: flex-start; }
+}
+
+
+/* Patch 2026-08-08: layout Pelatihan Soal TKA dibuat mandiri dan tahan overflow/WebView. */
+.pa-training-layout,
+.pa-training-hero,
+.pa-training-form-card,
+.pa-training-library,
+.pa-training-toolbar,
+.pa-training-shelf-list,
+.pa-training-shelf,
+.pa-training-shelf-head,
+.pa-training-shelf-body {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pa-training-form-card[hidden] { display: none !important; }
+
+.pa-training-hero {
+  flex-wrap: wrap;
+}
+
+.pa-training-hero .pa-bank-hero-copy {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+.pa-training-hero .pa-bank-hero-actions {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.pa-training-form-card {
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid var(--gt-line, rgba(148, 163, 184, .2));
+  border-radius: 24px;
+  background: var(--gt-panel-solid, var(--card, #fff));
+  box-shadow: var(--gt-card-shadow, 0 16px 36px rgba(15, 23, 42, .08));
+}
+
+.pa-training-form-card .pa-form-group,
+.pa-training-form-card input,
+.pa-training-form-card button {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.pa-training-form-card input { width: 100%; }
+
+.pa-training-library-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.pa-training-toolbar {
+  margin: 0;
+}
+
+.pa-training-search,
+.pa-training-toolbar .pa-bank-search,
+.pa-training-toolbar .pa-bank-search input {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pa-training-shelf-head > div:first-child > div {
+  min-width: 0;
+}
+
+.pa-training-shelf-actions {
+  min-width: 0;
+}
+
+.pa-training-edit-btn {
+  min-height: 40px;
+  white-space: nowrap;
+}
+
+.pa-training-shelf-body .pa-bookshelf-row,
+.pa-training-shelf-body .pa-book-row,
+.pa-training-shelf-body .pa-book-card,
+.pa-training-shelf-body .pa-book-cover {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.pa-training-shelf-body .pa-book-title,
+.pa-training-shelf-body .pa-book-subtitle,
+.pa-training-shelf-head h4,
+.pa-training-shelf-head p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 900px) {
+  .pa-training-hero {
+    align-items: stretch;
+  }
+
+  .pa-training-hero .pa-bank-hero-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .pa-training-library-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .pa-training-hero .pa-bank-hero-actions,
+  .pa-training-shelf-actions,
+  .pa-training-library-actions {
+    width: 100%;
+  }
+
+  .pa-training-hero .pa-bank-hero-actions > *,
+  .pa-training-library-actions > .pa-btn,
+  .pa-training-shelf-actions > .pa-btn {
+    max-width: 100%;
+  }
+
+  .pa-training-shelf-head {
+    padding: 14px;
+  }
+
+  .pa-training-shelf-body {
+    padding: 14px 12px 18px;
+  }
+}

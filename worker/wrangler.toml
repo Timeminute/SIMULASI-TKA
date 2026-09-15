@@ -1,8 +1,0 @@
-name = "simulasi-tka-api"
-main = "src/worker.js"
-compatibility_date = "2026-09-15"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "tka_db"
-database_id = "fb3b3318-2985-41ea-9c8f-05a97a11ab27"

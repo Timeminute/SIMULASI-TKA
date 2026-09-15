@@ -1,0 +1,3 @@
+-- Cloudflare D1 schema source extracted from src/db.js
+-- The original project creates tables through initDatabase().
+-- Keep this file synchronized with db-source.js during deployment.
